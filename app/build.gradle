@@ -30,6 +30,7 @@ android {
     kapt {
         generateStubs = true
     }
+    
 }
 
 ext {
@@ -75,8 +76,8 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
 
-    // Images
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    // Fused Location
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     //dataBinding
     kapt 'com.android.databinding:compiler:3.4.0'

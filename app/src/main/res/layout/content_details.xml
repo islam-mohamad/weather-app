@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:showIn="@layout/activity_details"
-        tools:context=".features.details.DetailsActivity">
+        tools:showIn="@layout/activity_weather_details"
+        tools:context=".features.weather.WeatherDetailsActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

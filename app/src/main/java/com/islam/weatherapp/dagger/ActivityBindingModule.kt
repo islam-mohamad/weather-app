@@ -1,7 +1,7 @@
 package com.islam.weatherapp.dagger
 
-import com.islam.weatherapp.features.home.view.ui.HomeActivity
-import com.islam.weatherapp.dagger.modules.HomeModule
+import com.islam.weatherapp.features.cities.view.ui.HomeActivity
+import com.islam.weatherapp.dagger.modules.CitiesModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -10,6 +10,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBindingModule {
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = [HomeModule::class])
+    @ContributesAndroidInjector(modules = [CitiesModule::class])
     abstract fun bindHomeActivity(): HomeActivity
 }

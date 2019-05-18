@@ -12,7 +12,7 @@ import java.util.HashMap
 object NetworkEvent {
 
     /*
-     * Step 2: Create a PublishSubject instance
+     * Create a PublishSubject instance
      * which we use to publish events to all
      * registered subscribers in the app.
      */
@@ -33,7 +33,7 @@ object NetworkEvent {
     }
 
     /*
-     * Step 3: Create a CompositeDisposable map.
+     * Create a CompositeDisposable map.
      * We use CompositeDisposable to maintain the list
      * of subscriptions in a pool. And also to so that
      * we can dispose them all at once.
@@ -42,7 +42,7 @@ object NetworkEvent {
 
 
     /*
-     * Step 3: Create a method to fetch the CompositeDisposable Map
+     * Create a method to fetch the CompositeDisposable Map
      * or create it if it's not already in memory.
      * We pass a key (in this case our key is the Activity or fragment
      * instance).
@@ -58,7 +58,7 @@ object NetworkEvent {
 
 
     /*
-     * Step 4: Use this method to Publish the NetworkState
+     * Use this method to Publish the NetworkState
      * to all the specified subscribers of the subject.
      */
     fun publish(networkState: NetworkState) {
@@ -68,7 +68,7 @@ object NetworkEvent {
 
 
     /*
-     * Step 4: Use this method to subscribe to the specified subject
+     * Use this method to subscribe to the specified subject
      * and listen for updates on that subject.
      * Pass in an object (in this case the activity or fragment instance)
      * to associate the registration, so that we can unsubscribe later.
@@ -80,7 +80,7 @@ object NetworkEvent {
 
 
     /*
-     * Step 4: Use this method to Unregister this particular object
+     *Use this method to Unregister this particular object
      * from the bus, removing all subscriptions.
      * This should be called in order to avoid memory leaks
      */

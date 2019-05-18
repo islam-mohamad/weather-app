@@ -34,7 +34,7 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFrag
      *
      * @return view model instance
      */
-    abstract fun  viewModel(): V
+    abstract fun viewModel(): V
 
     val isNetworkConnected: Boolean = baseActivity != null && baseActivity!!.isNetworkConnected()
 
@@ -73,6 +73,18 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFrag
         mViewDataBinding!!.executePendingBindings()
     }
 
+    fun hasPermission(permission: String): Boolean {
+        if (baseActivity != null) {
+            return baseActivity!!.hasPermission(permission)
+        }
+        return false
+    }
+
+    fun requestPermissionsSafely(permissions: Array<String>, requestCode: Int) {
+        if (baseActivity != null) {
+            baseActivity!!.requestPermissionsSafely(permissions, requestCode)
+        }
+    }
 
     fun hideKeyboard() {
         if (baseActivity != null) {

@@ -1,6 +1,7 @@
 package com.islam.weatherapp.base
 
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -21,12 +22,22 @@ import com.islam.weatherapp.R
 import com.islam.weatherapp.networking.NetworkEvent
 import com.islam.weatherapp.networking.NetworkState
 import com.islam.weatherapp.utils.CommonUtils
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasActivityInjector
 import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.functions.Consumer
+import javax.inject.Inject
 
 
-abstract class BaseActivity<T : ViewDataBinding> : DaggerAppCompatActivity(),
+abstract class BaseActivity<T : ViewDataBinding> : DaggerAppCompatActivity(), HasActivityInjector,
     BaseFragment.Callback {
+
+    @Inject
+    lateinit var activityInjector: DispatchingAndroidInjector<Activity>
+
+    override fun activityInjector(): AndroidInjector<Activity> = activityInjector
+
 
     private var mProgressBar: ProgressBar? = null
     private var mViewDataBinding: T? = null
@@ -128,7 +139,7 @@ abstract class BaseActivity<T : ViewDataBinding> : DaggerAppCompatActivity(),
     }
 
     fun showLoading() {
-        hideLoading()
+        mProgressBar!!.visibility = View.VISIBLE
     }
 
     fun hideLoading() {
