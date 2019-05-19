@@ -15,11 +15,11 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".features.weather.WeatherDetailsActivity"
+                android:name=".presentation.weather.WeatherDetailsActivity"
                 android:label="@string/title_activity_details"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".features.cities.view.ui.HomeActivity">
+        <activity android:name=".presentation.cities.view.ui.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

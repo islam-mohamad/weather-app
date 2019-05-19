@@ -1,8 +1,8 @@
 package com.islam.weatherapp
 
 import android.content.Context
-import com.islam.weatherapp.dagger.AppComponent
-import com.islam.weatherapp.dagger.DaggerAppComponent
+import com.islam.weatherapp.di.AppComponent
+import com.islam.weatherapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

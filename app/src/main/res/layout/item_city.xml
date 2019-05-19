@@ -4,7 +4,7 @@
     <data>
         <variable name="model"
                   type="com.islam.weatherapp.entities.City"/>
-        <variable name="callback" type="com.islam.weatherapp.features.cities.view.callback.CityCallback"/>
+        <variable name="callback" type="com.islam.weatherapp.presentation.cities.view.callback.CityCallback"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   xmlns:tools="http://schemas.android.com/tools"

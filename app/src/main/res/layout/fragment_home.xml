@@ -3,7 +3,7 @@
     <data>
         <variable
                 name="view"
-                type="com.islam.weatherapp.features.cities.view.ui.HomeFragment"/>
+                type="com.islam.weatherapp.presentation.cities.view.ui.HomeFragment"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
