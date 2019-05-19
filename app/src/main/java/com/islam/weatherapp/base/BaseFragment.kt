@@ -1,6 +1,8 @@
 package com.islam.weatherapp.base
 
+import android.annotation.TargetApi
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -80,9 +82,10 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : DaggerFrag
         return false
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     fun requestPermissionsSafely(permissions: Array<String>, requestCode: Int) {
-        if (baseActivity != null) {
-            baseActivity!!.requestPermissionsSafely(permissions, requestCode)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(permissions, requestCode)
         }
     }
 

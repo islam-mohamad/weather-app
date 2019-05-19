@@ -12,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DiffUtil
@@ -46,7 +45,7 @@ class HomeFragment @Inject constructor() : BaseFragment<FragmentHomeBinding, Cit
 
     private var isFavCitiesListCompleted: Boolean? = false
     private var searchResultsAdapter: AppRecyclerViewAdapter<City>? = null
-    private var alertDialogCities: AlertDialog? =null
+    private var alertDialogCities: AlertDialog? = null
     @Inject
     lateinit var viewModel: CitiesViewModel
 
@@ -125,37 +124,13 @@ class HomeFragment @Inject constructor() : BaseFragment<FragmentHomeBinding, Cit
         ) {
             fusedLocationClient.lastLocation.addOnSuccessListener(onLocationSuccess)
         } else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    activity!!,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) || ActivityCompat.shouldShowRequestPermissionRationale(
-                    activity!!,
+            requestPermissionsSafely(
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION
-                )
-            ) {
+                ), MY_PERMISSIONS_REQUEST_LOCATION
+            )
 
-                AlertDialog.Builder(activity!!)
-                    .setTitle(R.string.title_location_permission)
-                    .setMessage(R.string.text_location_permission)
-                    .setPositiveButton(R.string.ok) { _, _ ->
-
-                        requestPermissionsSafely(
-                            arrayOf(
-                                Manifest.permission.ACCESS_FINE_LOCATION,
-                                Manifest.permission.ACCESS_COARSE_LOCATION
-                            ), MY_PERMISSIONS_REQUEST_LOCATION
-                        )
-
-                    }
-                    .create()
-                    .show()
-            } else {
-                ActivityCompat.requestPermissions(
-                    activity!!,
-                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),
-                    MY_PERMISSIONS_REQUEST_LOCATION
-                )
-            }
         }
     }
 
@@ -306,7 +281,7 @@ class HomeFragment @Inject constructor() : BaseFragment<FragmentHomeBinding, Cit
     }
 
     private fun dismissServicesDialog() {
-        if(alertDialogCities!= null){
+        if (alertDialogCities != null) {
             alertDialogCities!!.dismiss()
         }
     }

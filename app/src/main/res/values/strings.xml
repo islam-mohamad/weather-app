@@ -18,5 +18,6 @@
     <string name="title_location_permission">Location</string>
     <string name="text_location_permission">enable location permission to get your current city locaion</string>
     <string name="fav_cities_list_completed">Sorry, You Can\'t Add More Than Five Cities !</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
