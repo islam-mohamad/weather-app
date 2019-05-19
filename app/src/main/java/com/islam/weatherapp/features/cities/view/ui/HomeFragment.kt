@@ -46,7 +46,7 @@ class HomeFragment @Inject constructor() : BaseFragment<FragmentHomeBinding, Cit
 
     private var isFavCitiesListCompleted: Boolean? = false
     private var searchResultsAdapter: AppRecyclerViewAdapter<City>? = null
-    private lateinit var alertDialogCities: AlertDialog
+    private var alertDialogCities: AlertDialog? =null
     @Inject
     lateinit var viewModel: CitiesViewModel
 
@@ -247,13 +247,13 @@ class HomeFragment @Inject constructor() : BaseFragment<FragmentHomeBinding, Cit
             setSearchView()
 
             alertDialogCities = alertDialogBuilder!!.create()
-            alertDialogCities.show()
-            alertDialogCities.window!!.attributes.height = (ScreenUtils.getScreenHeight(activity!!) * 0.8).toInt()
-            alertDialogCities.window!!.attributes.width = (ScreenUtils.getScreenWidth(activity!!) * 0.9).toInt()
-            alertDialogCities.dismiss()
+            alertDialogCities!!.show()
+            alertDialogCities!!.window!!.attributes.height = (ScreenUtils.getScreenHeight(activity!!) * 0.8).toInt()
+            alertDialogCities!!.window!!.attributes.width = (ScreenUtils.getScreenWidth(activity!!) * 0.9).toInt()
+            alertDialogCities!!.dismiss()
         }
-        if (!alertDialogCities.isShowing) {
-            alertDialogCities.show()
+        if (!alertDialogCities!!.isShowing) {
+            alertDialogCities!!.show()
             viewModel.initSearchBox()
         }
     }
@@ -305,8 +305,10 @@ class HomeFragment @Inject constructor() : BaseFragment<FragmentHomeBinding, Cit
         )
     }
 
-    fun dismissServicesDialog() {
-        alertDialogCities.dismiss()
+    private fun dismissServicesDialog() {
+        if(alertDialogCities!= null){
+            alertDialogCities!!.dismiss()
+        }
     }
 
     override fun onDetach() {

@@ -24,10 +24,6 @@ class CitiesRepo @Inject constructor(
     fun queryCitiesByIds(ids: List<Long>) =
         citiesTable.queryCitiesByIds(ids).subscribeOn(Schedulers.io())
 
-    fun queryCityByCoordinates(lat: Double, lng: Double) {
-//        citiesTable.queryCityByCoordinates(lat, lng).subscribeOn(Schedulers.io())
-    }
-
     fun queryFavoriteCityIds(): Flowable<List<FavoriteCityId>> =
         favoriteCityIdsTable.queryFavoriteCityIds().subscribeOn(Schedulers.io())
 
